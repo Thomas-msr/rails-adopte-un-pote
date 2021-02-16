@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :tags, through: :tags_users
   has_many :offers
 
+
   validates :first_name, presence: true
   validates :last_name, presence: true
   # validates :email, presence: true, uniqueness: true
