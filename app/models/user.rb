@@ -4,8 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :tagsusers, dependent: :destroy
-  has_many :tags, through: :tagsusers
+  has_many :tags_users, dependent: :destroy
+  has_many :tags, through: :tags_users
+  has_many :offers
 
   validates :first_name, presence: true
   validates :last_name, presence: true
