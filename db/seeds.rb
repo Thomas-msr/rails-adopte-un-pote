@@ -5,3 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+TAGS = ['expo', 'concert', 'boire un verre']
+
+
+puts "Cleaning database..."
+Tag.destroy_all
+
+puts "Creating tags..."
+TAGS.each do |tag|
+  Tag.create!(name: tag)
+  puts "Created #{tag.name}"
+end
+
+puts "Finished!"
