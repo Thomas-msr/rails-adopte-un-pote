@@ -15,6 +15,7 @@
 
 .navbar-brand {
   font-family: 'Pacifico', cursive;
+  color: #f6bd60 !important;
 }
 
 .nav-link {
@@ -23,8 +24,9 @@ left: 50px;
 font-family: 'Frank Ruhl Libre', serif;
 }
 
- .nav-link {
+ .nav-link:hover {
  color: #f6bd60 !important;
+ opacity: 0.8;
 }
 
 .d-flex {
