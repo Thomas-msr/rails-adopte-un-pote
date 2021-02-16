@@ -9,7 +9,7 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <script src="https://kit.fontawesome.com/0a6dd84551.js" crossorigin="anonymous"></script>
-    
+
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -18,10 +18,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
 
   </head>
-  
-  <body>
 
+  <body>
     <%=  render "/layouts/shared/navbar" %>
+  <!--   <br>
+    <br>
+    <br> -->
     <%= yield %>
   </body>
 </html>
