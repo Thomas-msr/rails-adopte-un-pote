@@ -1,6 +1,8 @@
 <div class="container">
+  <div class="index">
+    <% @offers.each do |offer| %>
+      <%= render "/layouts/shared/card", name: offer.user.first_name, city: offer.user.city, title: offer.title, tags: offer.user.tags %>
 
-
-<%= render "/layouts/shared/card" %>
-
+    <% end %>
+  </div>
 </div>

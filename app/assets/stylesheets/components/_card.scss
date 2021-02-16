@@ -1,7 +1,13 @@
+.index {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .card {
   width: 300px;
   height: 400px;
   border-radius: 5px;
+  margin: 8px
 }
 
 .image {
