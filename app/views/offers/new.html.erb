@@ -1,22 +1,18 @@
 
 <div class="row justify-content-center">
   <div class="col-12 col-md-6 col-lg-4">
-    <form action="#">
-      <h2 class="text-center mb-5">Qu'elle est ton offre ?</h2>
-        <div class="form-row">
-          <div class="col-6 form-group">
-            <%= simple_form_for @offer do |f| %>
-            <%= f.input :title %>
-           </div>
-           <div class="col-6 form-group">
-             <%= f.input :date %>
-           </div>
+    <h2 class="text-center mb-5">Que proposes-tu ?</h2>
+      <div class="form-row">
+        <div class="col-6 form-group">
+          <%= simple_form_for @offer do |f| %>
+          <%= f.input :title, label: "Ton titre :" %>
         </div>
-          <div class="btn-o">
-           <%= f.button :submit %>
+        <div class="col-6 form-group">
+          <%= f.input :availabilities, label: "Tes dates :" %>
         </div>
-    </form>
+      </div>
+       <%= f.button :submit, "Créer ton offre", class:"btn-o btn btn-info btn-lg w-100" %>
+       <% end %>
   </div>
 </div>
-<% end %>
 
