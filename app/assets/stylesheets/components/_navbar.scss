@@ -3,6 +3,9 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  position: fixed;
+  top: 0; 
+  width: 100%; 
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -32,5 +35,3 @@ font-family: 'Frank Ruhl Libre', serif;
 .d-flex {
   padding-left: 20px;
 }
-
-

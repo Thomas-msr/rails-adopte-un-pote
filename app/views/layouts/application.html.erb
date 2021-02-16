@@ -7,40 +7,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/0a6dd84551.js" crossorigin="anonymous"></script>
     
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
   </head>
+  
   <body>
 
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <a class="navbar-brand" href="#">Adopte un pote</a>
-
-
-
-  <div class="collapse navbar-collapse w-100 d-flex justify-content-between navbar-nav" id="navbarSupportedContent">
-
-      <div class="d-flex nav-item">
-
-        <a class="nav-link" href="#">Home</a>
-
-          <a class="nav-link" href="#">Offers</a>
-
-      </div>
-      <div class="d-flex ">
-
-          <a class="nav-link" href="#">Login</a>
-          <a class="nav-link" href="#">Signup</a>
-
-
-          <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="http://cdn.onlinewebfonts.com/svg/img_568656.png" />
-      </div>
-
-  </div>
-</div>
+    <%=  render "/layouts/shared/navbar" %>
     <%= yield %>
   </body>
 </html>
