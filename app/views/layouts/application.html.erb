@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/0a6dd84551.js" crossorigin="anonymous"></script>
     
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -25,19 +26,36 @@
 
       <div class="d-flex nav-item">
 
-        <a class="nav-link" href="#">Home</a>
+         <%= link_to "Acceuil", root_path, class: "nav-link" %>
 
-          <a class="nav-link" href="#">Offers</a>
-
+          
+          <%= link_to "Les offres", offers_path, class: "nav-link" %>
+      
+           <%# <a class="nav-link" href="#">Proposer une offre</a> %>
+              <%= link_to "Proposer une offre", new_offer_path, class: "nav-link" %>
       </div>
       <div class="d-flex ">
+          
+          
+          <% unless user_signed_in?  %>
+            <%= link_to "Login",   new_user_session_path , class: "nav-link" %>
+            <%= link_to "Signup",   new_user_registration_path , class: "nav-link" %>
+          <% end %>
+  
 
-          <a class="nav-link" href="#">Login</a>
-          <a class="nav-link" href="#">Signup</a>
-
-
-          <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="http://cdn.onlinewebfonts.com/svg/img_568656.png" />
+        <li class="nav-item dropdown">
+         <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="http://cdn.onlinewebfonts.com/svg/img_568656.png" />
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <%= link_to "Mon profil", user_session_path, class: "dropdown-item"%>
+          <%= link_to "Paramètres", offers_path, class: "dropdown-item"%>
+          <%= link_to "Aides", user_session_path, class: "dropdown-item"%>
+          <%= link_to "Déconnexion", destroy_user_session_path,  method: :delete  ,class: "dropdown-item"%>
+        </li> 
+          </div>
       </div>
+          
+      
+
 
   </div>
 </div>
