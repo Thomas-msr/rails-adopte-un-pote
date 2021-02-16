@@ -1,6 +1,7 @@
 .index {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .card {
@@ -78,5 +79,5 @@
 
 .fa-star {
   color:rgba(246, 189, 96, 0.4);
-  
+
 }

@@ -12,7 +12,6 @@ class OffersController < ApplicationController
   end
 
   def create
-
     @offer = Offer.new(offer_params)
     @offer.user_id = current_user.id
     if @offer.save!
@@ -24,6 +23,6 @@ class OffersController < ApplicationController
 
   private
   def offer_params
-    params.require(:offer).permit(:title, :availabilities)
+    params.require(:offer).permit(:title, :availabilities, :user_id)
   end
 end
