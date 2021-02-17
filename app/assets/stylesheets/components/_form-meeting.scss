@@ -1,0 +1,50 @@
+.card-form {
+    margin-top: 50px;
+    background-color: white;
+    height: 500px;
+    color: black;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    flex-grow: 1;
+    margin-right: 130px;
+    margin-left: 130px;
+    margin-bottom: 130px;
+    padding: 20px 20px;
+    width: 70% 70%;
+}
+
+.text-center {
+    margin-bottom: 50px;
+
+}
+
+
+.input-info {
+  width: 50%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  position: static;
+
+}
+
+.input-content {
+  width: 50%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  position: static;
+  padding-right: 0px
+}
+
+textarea .form-control {
+  height: 200px !important;
+
+}
+
+
+
+
