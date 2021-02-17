@@ -23,13 +23,14 @@
                 input_html: { autocomplete: "last-name" } %>
     <%= f.input :description,
                 required: true,
-                input_html: { autocomplete: "last-name" } %>
+                input_html: { autocomplete: "description" } %>
     <%= f.input :city,
                 required: true,
-                input_html: { autocomplete: "last-name" } %>
+                input_html: { autocomplete: "city" } %>
     <%= f.input :avatar_url,
                 required: true,
-                input_html: { autocomplete: "last-name" } %>
+                input_html: { autocomplete: "avatar_url" } %>
+    <%= f.input :tags, collection: Tag.all, input_html: { multiple: true, class: 'multiple-select' }, include_hidden: false %>
 
   </div>
 
