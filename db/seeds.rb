@@ -58,10 +58,10 @@ Offer.create!(title: "J'ai besoin de thunes", availabilities: "Dispo tout le tem
 
 puts "Creating meetings..."
 
-Meeting.create!(date: "demain", status: "pending", user_id: 2, offer_id:1)
-Meeting.create!(date: "jeudi", status: "pending", user_id: 3, offer_id:1)
-Meeting.create!(date: "mardi", status: "pending", user_id: 1, offer_id:2)
-Meeting.create!(date: "vendredi", status: "pending", user_id: 3, offer_id:2)
+Meeting.create!(date: 04/02/2021, status: "pending", user_id: 2, offer_id:1)
+Meeting.create!(date: 04/02/2021, status: "pending", user_id: 3, offer_id:1)
+Meeting.create!(date: 04/02/2021, status: "pending", user_id: 1, offer_id:2)
+Meeting.create!(date: 04/02/2021, status: "pending", user_id: 3, offer_id:2)
 puts "Finished!"
 
 
