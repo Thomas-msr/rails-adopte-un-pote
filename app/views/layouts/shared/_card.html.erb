@@ -1,5 +1,5 @@
 <div class="card">
-  <div class="image">
+  <div class="image" style="background-image:linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.2)), url( <%= offer.user.avatar_url %> )">
     <i class="far fa-heart"></i>
     <h2> <%= link_to name, offer_path(offer), style: 'color:white' %> </h2>
     <p><i class="fas fa-map-marker-alt"></i> <%= city %> </p>
@@ -13,5 +13,5 @@
 
     </div>
   </div>
-    <div class="rating">4,5 <i class="far fa-star"></i></div>
+    <div class="rating"> <i class="far fa-star"></i></div>
 </div>

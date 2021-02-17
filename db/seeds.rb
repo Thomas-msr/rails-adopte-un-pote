@@ -20,10 +20,12 @@ TAGS.each do |tag|
 end
 
 puts "Creating users..."
-User.create!(first_name: "Baptiste", last_name: "Josse", city: "Bordeaux", email: "baptiste@gmail.com", password: "secret", avatar_url:"https://imgsrc.cineserie.com/2019/05/disney-repousse-encore-avatar-2-et-date-3-nouveaux-films-star-wars.jpg?ver=1")
-User.create!(first_name: "Thomas", last_name: "Moessner", city: "Paris", email: "totodu33@gmail.com", password: "secret")
-User.create!(first_name: "Cyrielle", last_name: "Gout", city: "Bordeaux", email: "cyrielle@gmail.com", password: "secret", avatar_url:"https://imgsrc.cineserie.com/2019/05/disney-repousse-encore-avatar-2-et-date-3-nouveaux-films-star-wars.jpg?ver=1")
-User.create!(first_name: "Alexandre", last_name: "Madeleine", city: "Bordeaux", email: "alex@gmail.com", password: "secret")
+User.create!(first_name: "Baptiste", last_name: "Josse", city: "Bordeaux", email: "baptiste@gmail.com", password: "secret", avatar_url:"https://scontent-cdt1-1.xx.fbcdn.net/v/t1.0-9/20292681_10211935177968045_3900832542794430335_n.jpg?_nc_cat=101&ccb=3&_nc_sid=0debeb&_nc_ohc=LepZDhv_flQAX9gRpzk&_nc_ht=scontent-cdt1-1.xx&oh=bcc447badba35e3684d3e335af05e112&oe=60524335")
+User.create!(first_name: "Thomas", last_name: "Moessner", city: "Paris", email: "totodu33@gmail.com", password: "secret", avatar_url:"https://ca.slack-edge.com/T02NE0241-U01JASARRND-2749c28ba94d-512")
+User.create!(first_name: "Cyrielle", last_name: "Gout", city: "Bordeaux", email: "cyrielle@gmail.com", password: "secret", avatar_url:"https://ca.slack-edge.com/T02NE0241-U01J4HUUB6G-4bd88b49390d-512")
+User.create!(first_name: "Alexandre", last_name: "Madeleine", city: "Bordeaux", email: "alex@gmail.com", password: "secret", avatar_url: "https://ca.slack-edge.com/T02NE0241-U01JD3D89CH-c479e937dfeb-512")
+User.create!(first_name: "Bertrand", last_name: "Bussac", city: "Bordeaux", email: "bb@gmail.com", password: "secret", avatar_url: "https://ca.slack-edge.com/T02NE0241-U03UPH1K6-d2c11a26c57f-512")
+
 
 puts "Adding tags to users..."
 TagsUser.create!(user_id: 1, tag_id: 1)
@@ -41,15 +43,14 @@ TagsUser.create!(user_id: 4, tag_id: 3)
 TagsUser.create!(user_id: 4, tag_id: 4)
 TagsUser.create!(user_id: 4, tag_id: 5)
 TagsUser.create!(user_id: 4, tag_id: 6)
-TagsUser.create!(user_id: 4, tag_id: 7)
-TagsUser.create!(user_id: 4, tag_id: 8)
+
 
 puts "Creating offers..."
 Offer.create!(title: "Je suis un aventurier sans limites", availabilities: "Dispo les weekends", user_id: 1)
 Offer.create!(title: "J'ai besoin de thunes", availabilities: "Dispo tout le temps", user_id: 2)
 Offer.create!(title: "Hello ! ", availabilities: "Dispo les weekends", user_id: 3)
 Offer.create!(title: "Je suis trop cool", availabilities: "Dispo tout le temps", user_id: 4)
-Offer.create!(title: "Hâte de te reoncontrer :)", availabilities: "Dispo les weekends", user_id: 1)
+Offer.create!(title: "Hâte de te reoncontrer :)", availabilities: "Dispo les weekends", user_id: 5)
 Offer.create!(title: "Le poney c'est super", availabilities: "Dispo tout le temps", user_id: 2)
 Offer.create!(title: "Je suis un aventurier sans limites", availabilities: "Dispo les weekends", user_id: 3)
 Offer.create!(title: "J'ai besoin de thunes", availabilities: "Dispo tout le temps", user_id: 4)
