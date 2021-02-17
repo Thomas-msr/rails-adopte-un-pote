@@ -34,29 +34,22 @@
 
 </div>
 
-<div class="wrapper-offers-detail ">
 
-<div class="card-description">
-  <div class="row justify-content-center">
-    <div class="col-12 col-md-6 col-lg-4">
-      <h2 class="text-center mb-5">Ecris un message à ton futur poto</h2>
-        <div class="form-row">
-          <div class="col-6 col-lg-9 col-md-8">
-            <%= simple_form_for [@offer, @meeting] do |f| %>
-             <%= f.input :date, label: "La date :" %>
+
+<div class="form-meeting">
+   <div class="card-form">
+      <h2 class="text-center">Ecris un message à ton futur poto 🎉</h2>
+        <div class="input-info text-center">
+          <%= simple_form_for [@offer, @meeting] do |f| %>
+          <%= f.input :date, label: "Propose ta date :" %>
           </div>
-          <div class="col-6 col-md-12">
-            <%= f.input :content, label: "Passe le bonjour à ton poto : " %>
-          </div>
+          <div class="input-content text-center">
+          <%= f.input :content, label: "Programme une activité avec ton poto :" %>
         </div>
-         <%= f.button :submit, "Envoyez", class:"btn btn-flat w-100" %>
+          <div class="input-info text-center">
+         <%= f.button :submit, "Envoyez", class:"btn btn-flat w-90" %>
          <% end %>
+        </div>
     </div>
-  </div>
 </div>
-
-</div>
-
-<!-- <div class=btn-container>
-<a class="btn btn-flat" href="#">Envoyer un message</a>
-</div> -->
+<div style="height: 20px"></div>
