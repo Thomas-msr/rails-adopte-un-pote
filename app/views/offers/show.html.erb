@@ -1,7 +1,6 @@
 <div class="wrapper-header">
   <h5> <%= link_to "< Retour aux résultats", offers_path %> </h5>
 </div>
-
 <div class="wrapper">
   <img class="avatar-large-bordered" src="<%= @offer.user.avatar_url %>" alt="user avatar">
   <div class="wrapper-profile-content">
@@ -15,48 +14,37 @@
     </div>
   </div>
 </div>
-
-
 <div class="wrapper-offers-detail ">
-
   <div class="card-description">
     <h2>Ma description</h2>
     <hr/>
     <p> <%= @offer.user.description %> </p>
   </div>
-
-
     <div class="card-dispo">
       <h2>Ma dispo</h2>
       <hr/>
       <p> <%= @offer.availabilities %> </p>
     </div>
-
 </div>
-
-<div class="wrapper-offers-detail ">
-
-<div class="card-description">
-  <div class="row justify-content-center">
-    <div class="col-12 col-md-6 col-lg-4">
-      <h2 class="text-center mb-5">Ecris un message à ton futur poto</h2>
-        <div class="form-row">
-          <div class="col-6 col-lg-9 col-md-8">
-            <%= simple_form_for [@offer, @meeting] do |f| %>
-             <%= f.input :date, label: "La date :" %>
+<% if user_signed_in? %>
+  <div class="form-meeting">
+     <div class="card-form">
+        <h2 class="text-center">Ecris un message à ton futur poto :tada:</h2>
+          <div class="input-info text-center">
+            <%= simple_form_for @meeting do |f| %>
+            <%= f.input :date, label: "Propose ta date :" %>
+            </div>
+            <div class="input-content text-center">
+            <%= f.input :content, label: "Programme une activité avec ton poto :" %>
           </div>
-          <div class="col-6 col-md-12">
-            <%= f.input :content, label: "Passe le bonjour à ton poto : " %>
+            <div class="input-info text-center">
+            <%= f.input :offer_id, :as => :hidden, :input_html => { :value => @offer.id } %>
+           <%= f.button :submit, "Envoyez", class:"btn btn-flat w-90" %>
+           <% end %>
           </div>
-        </div>
-         <%= f.button :submit, "Envoyez", class:"btn btn-flat w-100" %>
-         <% end %>
-    </div>
+      </div>
   </div>
-</div>
-
-</div>
-
-<!-- <div class=btn-container>
-<a class="btn btn-flat" href="#">Envoyer un message</a>
-</div> -->
+<% else %>
+  <h3 style="text-align: center; margin-top: 30px;"> Connecte-toi pour écrire à ce poto et lui proposer un RDV ;) </h3>
+<% end %>
+<div style="height: 20px"></div>

@@ -7,19 +7,20 @@ class MeetingsController < ApplicationController
     @meeting = Meeting.find(params[:id])
   end
 
-  # def new
-  #   @meeting = Meeting.new
-  #   @offer = Offer.find(params[:offer_id])
-  # end
+  def new
+    @meeting = Meeting.new
+    @offer = Offer.find(params[:offer_id])
+  end
 
   def create
     @meeting = Meeting.new(meeting_params)
     @meeting.user_id = current_user.id
-    @meeting.offer_id = @meeting.offer.id
     @meeting.status = "pending"
-    @meeting.save!
-
-    redirect_to offer_path(@meeting)
+    if @meeting.save!
+      redirect_to meeting_path(@meeting)
+    else
+      render :show#:template => 'offers_controller/show'
+    end
   end
 
   def meeting_params
