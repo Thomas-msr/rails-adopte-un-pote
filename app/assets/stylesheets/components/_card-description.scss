@@ -41,9 +41,14 @@
 
 .btn-flat {
   color: white;
-  padding: 8px 24px;
+  padding-right: 8px;
+  padding-left: 8px;
+  padding-bottom: 8px;
+  padding-top: 8px;
   border-radius: 4px;
   background: $primary-color;
+  margin-left: 20px;
+  width: 50%;
 }
 
 
