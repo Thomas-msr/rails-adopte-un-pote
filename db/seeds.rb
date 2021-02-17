@@ -12,6 +12,7 @@ puts "Cleaning database..."
 Tag.destroy_all
 Offer.destroy_all
 User.destroy_all
+Meeting.destroy_all
 
 
 puts "Creating tags..."
@@ -54,6 +55,13 @@ Offer.create!(title: "Hâte de te reoncontrer :)", availabilities: "Dispo les we
 Offer.create!(title: "Le poney c'est super", availabilities: "Dispo tout le temps", user_id: 2)
 Offer.create!(title: "Je suis un aventurier sans limites", availabilities: "Dispo les weekends", user_id: 3)
 Offer.create!(title: "J'ai besoin de thunes", availabilities: "Dispo tout le temps", user_id: 4)
+
+puts "Creating meetings..."
+
+Meeting.create!(status: "pending", user_id: 2, offer_id:1)
+Meeting.create!(status: "pending", user_id: 3, offer_id:1)
+Meeting.create!(status: "pending", user_id: 1, offer_id:2)
+Meeting.create!(status: "pending", user_id: 3, offer_id:2)
 puts "Finished!"
 
 

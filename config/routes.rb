@@ -10,8 +10,7 @@ Rails.application.routes.draw do
   # get 'offers/create'
   devise_for :users
   root to: 'pages#home'
-  resources :offers, only: [:index, :show, :new, :create] do
-    resources :meetings
-  end
+  resources :offers, only: [:index, :show, :new, :create]
+  resources :meetings
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
