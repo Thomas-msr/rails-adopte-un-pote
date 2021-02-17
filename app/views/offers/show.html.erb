@@ -6,7 +6,7 @@
   <img class="avatar-large-bordered" src="<%= @offer.user.avatar_url %>" alt="user avatar">
   <div class="wrapper-profile-content">
     <h2> <%= @offer.user.first_name %> <i class="far fa-heart"></i> </h2>
-    <p> <iplass="fas fa-map-marker-alt"></i> Localisé(e) à <%= @offer.user.city %> </p>
+    <p> <i class="fas fa-map-marker-alt"></i> Localisé(e) à <%= @offer.user.city %> </p>
     <h4> <em> "<%= @offer.title %>"</em> </h4>
     <div class="taglist">
       <% @offer.user.tags.each do |tag| %>
@@ -16,6 +16,28 @@
   </div>
 </div>
 
+
+<div class="wrapper-offers-detail ">
+  
+  <div class="card-description">
+    <h2>Ma description</h2>
+    <hr/>
+    <p> <%= @offer.user.description %> </p>
+  </div>
+
+
+    <div class="card-dispo">
+      <h2>Ma dispo</h2>
+      <hr/>
+      <p> <%= @offer.availabilities %> </p>
+    </div>
+    
+</div>
+  
+<div class=btn-container>
+<a class="btn btn-flat" href="#">Envoyer un message</a>
+</div>
+
 <div class="wrapper-description">
 
 </div>
@@ -23,3 +45,4 @@
 <div class="wrapper-availabilities">
 
 </div>
+
