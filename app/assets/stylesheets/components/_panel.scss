@@ -3,4 +3,26 @@
   margin: 30px;
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  display: flex;
+  
+}
+
+.panel-text {
+
+  h3 {
+    padding-top: 16px;
+    margin:0px
+  }
+
+  p {
+    font-style: italic;
+  }
+}
+
+.contient {
+  display: flex;
+  justify-content: space-between;
+  width: auto
 }
