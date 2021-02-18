@@ -28,6 +28,8 @@
 
 .avatar-medium {
   width: 125px;
+  height: 125px;
+  object-fit: cover;
   border-radius: 50%;
 }
 
@@ -35,4 +37,5 @@
   position: relative;
   right: 25px;
   border: solid 1px white;
+
 }
