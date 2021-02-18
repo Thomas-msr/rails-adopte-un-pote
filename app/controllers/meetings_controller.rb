@@ -23,7 +23,30 @@ class MeetingsController < ApplicationController
     end
   end
 
+  def update
+    @meeting = Meeting.find(params[:id])
+    if params[:commit] == "Accepter cette rencontre"
+      @meeting.status = "accepted"
+    elsif params[:commit] == "Refuser cette rencontre"
+      @meeting.status = "refused"
+    elsif params[:commit] == "Annuler cette rencontre"
+      @meeting.status = "canceled"
+    end
+    @meeting.save
+
+    redirect_to meetings_path
+=begin       if @meeting.update_attributes(meeting_params)
+        flash[:success] = "Object was successfully updated"
+        
+      else
+        flash[:error] = "Something went wrong"
+        redirect_to @meeting
+      end 
+=end
+  end
+  
+
   def meeting_params
-    params.require(:meeting).permit(:date, :status, :content, :offer_id)
+    params.require(:meeting).permit(:date, :status, :content, :offer_id, :commit)
   end
 end
