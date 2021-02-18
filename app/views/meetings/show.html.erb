@@ -1,0 +1,29 @@
+<div class=wrapper-header-met>
+  <div class=wrapper-global>
+    <div class="wrapper-met">
+      <% if current_user.id == @meeting.user_id %>
+        <img class="avatar-large-bordered" src="<%=@meeting.user.avatar_url%>"  alt="user avatar">
+        <img class="avatar-large-bordered chevauche-big" src="<%=@meeting.offer.user.avatar_url%>"  alt="user avatar">
+      <% else %>
+        <img class="avatar-large-bordered" src="<%=@meeting.offer.user.avatar_url%>" alt="user avatar">
+        <img class="avatar-large-bordered chevauche-big" src="<%=@meeting.user.avatar_url%>"  alt="user avatar">
+      <% end %>
+    </div>
+
+    <div class=details-center>
+    <% if current_user.id == @meeting.user_id %>
+      <h3> Ta rencontre avec <%= @meeting.offer.user.first_name %></h3>
+    <% else %>
+      <h3> Ta rencontre avec <%= @meeting.user.first_name %></h3>
+    <% end %>
+    <h4>Le <%= "#{@meeting.date.to_s[8,2]}/#{@meeting.date.to_s[5,2]}/#{@meeting.date.to_s[0,4]}"%> à <%= @meeting.offer.user.city %></h4>
+    </div>
+  </div>
+</div>
+
+<div class=btn-center>
+    <a href="#" class="btn-meetings">Annuler</a>
+    <a href="#" class="btn-meetings">Accepter</a>
+    <a href="#" class="btn-meetings">Decliner</a>
+</div>
+
