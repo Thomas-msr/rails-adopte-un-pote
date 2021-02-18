@@ -8,7 +8,7 @@ body,html{
 
 .background{
     background-image: url(https://images.unsplash.com/photo-1516149893016-813d9a01d5d3?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1950&q=80);
-    background-position: center; 
+    background-position: center;
     background-size: cover;
 }
 
@@ -19,6 +19,7 @@ body,html{
     background-color: #353b48;
     border-radius: 30px;
     padding: 10px;
+
     }
 
     .search_input{
@@ -30,16 +31,19 @@ body,html{
     caret-color:transparent;
     line-height: 40px;
     transition: width 0.4s linear;
+    margin-bottom: 10px;
+
     }
 
-    .searchbar:hover > .search_input{
+    .searchbar:hover .search_input{
     padding: 0 10px;
     width: 450px;
     caret-color:red;
     transition: width 0.4s linear;
+
     }
 
-    .searchbar:hover > .search_icon{
+    .searchbar:hover .search_icon{
     background: white;
     color: #e74c3c;
     }
@@ -54,8 +58,9 @@ body,html{
     border-radius: 50%;
     color:white;
     text-decoration:none;
+    padding-top: 10px;
     }
-    
+
     .find {
         display: flex;
         flex-direction: column;
@@ -68,4 +73,9 @@ body,html{
         font-size: 20px;
         line-height: 6px;
         font-weight: 800;
+
+    }
+
+    h1 {
+      font-family: 'Frank Ruhl Libre', serif;
     }
