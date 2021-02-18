@@ -35,6 +35,7 @@
                   label: "Age",
                   required: true,
                   input_html: { autocomplete: "age" } %>
+      <%= f.input :init_tags, label: "Tes kiffs", required: true, collection: Tag.all, input_html: { multiple: true, class: 'multiple-select' }, include_hidden: false %>
       <%= f.input :avatar_url,
                   label: "Lien vers ta photo",
                   required: true,
