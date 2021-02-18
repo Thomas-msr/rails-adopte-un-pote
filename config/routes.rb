@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'messages/create'
   # get 'users/new'
   # get 'users/create'
   # get 'users/show'
@@ -12,5 +13,6 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :offers, only: [:index, :show, :new, :create]
   resources :meetings
+  resources :messages, only: [:create]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
