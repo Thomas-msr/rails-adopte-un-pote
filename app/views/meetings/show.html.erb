@@ -1,29 +1,81 @@
-<div class=wrapper-header-met>
+<div class="wrapper-header">
+  <h5> <%= link_to "< Retour aux RDVs", meetings_path %> </h5>
+</div>
+
   <div class=wrapper-global>
-    <div class="wrapper-met">
-      <% if current_user.id == @meeting.user_id %>
-        <img class="avatar-large-bordered" src="<%=@meeting.user.avatar_url%>"  alt="user avatar">
-        <img class="avatar-large-bordered chevauche-big" src="<%=@meeting.offer.user.avatar_url%>"  alt="user avatar">
-      <% else %>
-        <img class="avatar-large-bordered" src="<%=@meeting.offer.user.avatar_url%>" alt="user avatar">
-        <img class="avatar-large-bordered chevauche-big" src="<%=@meeting.user.avatar_url%>"  alt="user avatar">
-      <% end %>
+    <div class="wrapper-header-meeting">
+      <div class="superposition">
+        <% if current_user.id == @meeting.user_id %>
+          <img class="avatar-large-bordered" src="<%=@meeting.user.avatar_url%>"  alt="user avatar">
+          <img class="avatar-large-bordered chevauche-big" src="<%=@meeting.offer.user.avatar_url%>"  alt="user avatar">
+        <% else %>
+          <img class="avatar-large-bordered" src="<%=@meeting.offer.user.avatar_url%>" alt="user avatar">
+          <img class="avatar-large-bordered chevauche-big" src="<%=@meeting.user.avatar_url%>"  alt="user avatar">
+        <% end %>
+      </div>
     </div>
+
+<br>
 
     <div class=details-center>
     <% if current_user.id == @meeting.user_id %>
-      <h3> Ta rencontre avec <%= @meeting.offer.user.first_name %></h3>
+      <h3>Ta rencontre avec <%= @meeting.offer.user.first_name %></h3>
     <% else %>
       <h3> Ta rencontre avec <%= @meeting.user.first_name %></h3>
     <% end %>
     <h4>Le <%= "#{@meeting.date.to_s[8,2]}/#{@meeting.date.to_s[5,2]}/#{@meeting.date.to_s[0,4]}"%> à <%= @meeting.offer.user.city %></h4>
     </div>
   </div>
-</div>
+
 
 <div class=btn-center>
-    <a href="#" class="btn-meetings">Annuler</a>
-    <a href="#" class="btn-meetings">Accepter</a>
-    <a href="#" class="btn-meetings">Decliner</a>
+
+  <% if current_user.id == @meeting.offer.user_id %>
+    <%= simple_form_for @meeting do |f| %>
+      <%= f.button :submit, "Accepter cette rencontre", class: "btn-meetings"%>
+      <%= f.button :submit, "Refuser cette rencontre", class: "btn-meetings"%>
+    <% end %>
+  <% else %>
+    <%= simple_form_for @meeting do |f| %>
+        <%= f.button :submit, "Annuler cette rencontre", class: "btn-meetings"%>
+      <% end %>
+    <% end %>
+
 </div>
 
+<br>
+
+<div class="wrapper-global-messages">
+  <div class="wrapper-messages">
+    <% @meeting.messages.each do |message| %>
+      <div class="wrapper-message">
+        <div class="wrapper-message-header">
+          <img class="avatar" src="<%=User.find(message.user_id).avatar_url%>"  alt="user avatar">
+          <div><%= User.find(message.user_id).first_name%>, le <%=message.created_at.strftime("%d-%m-%Y")%> à <%= message.created_at.strftime("%H:%M") %></div>
+        </div>
+        <div class="wrapper-message-content">
+          <%= message.content %>
+        </div>
+      </div>
+      <br>
+    <% end %>
+  </div>
+</div>
+
+<br>
+
+
+<div class="wrapper-global-messages">
+    <%= simple_form_for @message, class:"wrapper-send-message" do |f| %>
+        <%= f.input :content, label: "Ton message :", :input_html => {:style=> 'width: 600px'} %>
+        <%= f.input :meeting_id, :as => :hidden, :input_html => { :value => @meeting.id } %>
+        <%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id } %>
+        <div class="wrapper-button">
+          <%= f.button :submit, "Envoyer", class:"btn btn-flat btn-send"%>
+        </div>
+
+   <% end %>
+</div>
+
+<br>
+<br>

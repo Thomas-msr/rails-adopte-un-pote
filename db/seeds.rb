@@ -63,10 +63,21 @@ Meeting.create!(status: "pending", user_id: 3, offer_id:1)
 Meeting.create!(status: "pending", user_id: 1, offer_id:2)
 Meeting.create!(status: "pending", user_id: 3, offer_id:2)
 
+
 puts "Creating reviews..."
 
 Review.create!(rating: 5, content: "trop cool", destinataire: 2, user_id: 1, meeting_id: 3)
 Review.create!(rating: 4.5, content: "trop chouette", destinataire: 1, user_id: 2, meeting_id: 3)
+Review.create!(rating: 4, content: "Mec trop sympa, je recommande à mort sisi la famille toi même tu sais lorem mamène", destinataire: 1, user_id: 4, meeting_id: 3)
+
+
+puts "Creating messages..."
+
+Message.create!(meeting_id: 1, user_id: 2, content: "Kikou, je voudrais te recontrer...")
+Message.create!(meeting_id: 1, user_id: 1, content: "Okay, tu voudrais faire quoi ?")
+Message.create!(meeting_id: 1, user_id: 2, content: "Je sais pas, je suis très timide")
+Message.create!(meeting_id: 1, user_id: 1, content: "Allons faire du poney alors !")
+
 puts "Finished!"
 
 

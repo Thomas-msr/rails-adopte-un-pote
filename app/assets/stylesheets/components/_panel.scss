@@ -1,12 +1,17 @@
 .panel {
   background-color: white;
-  margin: 30px;
+  margin: 30px 50px;
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px;
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;
   display: flex;
-  
+  transition: transform .2s;
+
+}
+
+.panel:hover {
+  transform: scale(1.04);
 }
 
 .panel-text {

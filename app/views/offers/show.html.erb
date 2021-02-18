@@ -36,14 +36,14 @@
         <h2 class="text-center">Ecris un message à ton futur poto :tada:</h2>
           <div class="input-info text-center">
             <%= simple_form_for @meeting do |f| %>
-            <%= f.input :date, label: "Propose ta date :" %>
+            <%= f.input :date, label: "Propose une date:" %>
             </div>
             <div class="input-content text-center">
-            <%= f.input :content, label: "Programme une activité avec ton poto :" %>
+            <%= f.input :content, label: "Envoie un petit message à ton poto:" %>
           </div>
             <div class="input-info text-center">
             <%= f.input :offer_id, :as => :hidden, :input_html => { :value => @offer.id } %>
-           <%= f.button :submit, "Envoyez", class:"btn btn-flat w-90" %>
+           <%= f.button :submit, "Envoyer", class:"btn btn-flat w-90" %>
            <% end %>
           </div>
       </div>
