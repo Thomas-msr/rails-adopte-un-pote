@@ -62,6 +62,11 @@ Meeting.create!(status: "pending", user_id: 2, offer_id:1)
 Meeting.create!(status: "pending", user_id: 3, offer_id:1)
 Meeting.create!(status: "pending", user_id: 1, offer_id:2)
 Meeting.create!(status: "pending", user_id: 3, offer_id:2)
+
+puts "Creating reviews..."
+
+Review.create!(rating: 5, content: "trop cool", destinataire: 2, user_id: 1, meeting_id: 3)
+Review.create!(rating: 4.5, content: "trop chouette", destinataire: 1, user_id: 2, meeting_id: 3)
 puts "Finished!"
 
 
