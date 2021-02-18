@@ -1,15 +1,18 @@
 <!-- edit.html.erb -->
 
-salut ça va ?
-
-
 <% current_user.meetings.each do |meeting| %>
   <%= link_to meeting_path(meeting, current_user), style: 'text-decoration:none' do %>
-    <%= render "/layouts/shared/panel", meeting: meeting %>
+    <%= render "/layouts/shared/panel_user", meeting: meeting %>
   <% end %>
-  <%= simple_form_for [meeting] do |f| %>
-      <%= f.button :submit, "Accepter cette rencontre", class: "btn btn-light btn-lg "%>
-      <%= f.button :submit, "Refuser cette rencontre", class: "btn btn-light btn-lg "%>
-      <%= f.button :submit, "Annuler cette rencontre", class: "btn btn-light btn-lg "%>
-    <% end %>
+
 <% end %>
+
+<br>
+<h1>Tes RDV en tant que poto:</h1>
+
+<% Meeting.where(offer_id:current_user.id).each do |meeting| %>
+  <%= link_to meeting_path(meeting, current_user), style: 'text-decoration:none' do %>
+    <%= render "/layouts/shared/panel_offer", meeting: meeting %>
+  <% end %>
+<% end %>
+
