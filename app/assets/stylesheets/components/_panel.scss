@@ -24,5 +24,10 @@
 .contient {
   display: flex;
   justify-content: space-between;
-  width: auto
+  flex-grow: 1;
+  align-items: center;
+}
+
+.status-pan {
+  margin-right: 8px;
 }
