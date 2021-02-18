@@ -1,0 +1,29 @@
+<div class="contenant">
+
+  <div class="panel">
+    <div class="supperposition">
+      <img class="avatar-medium"  src=" <%= current_user.avatar_url%> " />
+      <img class="avatar-medium chevauche"  src=" <%= meeting.offer.user.avatar_url%> " />
+    </div>
+
+    <div class="contient">
+      <div class="panel-text">
+        <h3>Ton rendez-vous avec <%= meeting.offer.user.first_name %> </h3>
+        <p class="ml-3">Le 04/03/2020 à <%= current_user.city %> </p>
+      </div>
+
+      <div class="status-pan">
+        Status : <%= meeting.status  %> 
+        <% if meeting.status == "pending" %>
+          &#128528
+        <% elsif meeting.status == "accepted" %>
+          &#128525
+        <% else %>
+           &#128557
+        <% end %>
+          
+      </div>
+    </div>
+  </div>
+
+</div>
