@@ -1,10 +1,24 @@
 <!-- edit.html.erb -->
 
 salut ça va ?
+<div class="contenant">
 
-<div class="panel">
-  <div class="supperposition">
-    <img class="avatar-medium"  src=" <%= current_user.avatar_url%> " />
-    <img class="avatar-medium chevauche"  src=" <%= current_user.avatar_url%> " />
+  <div class="panel">
+    <div class="supperposition">
+      <img class="avatar-medium"  src=" <%= current_user.avatar_url%> " />
+      <img class="avatar-medium chevauche"  src=" <%= current_user.avatar_url%> " />
+    </div>
+
+    <div class="contient">
+      <div class="panel-text">
+        <h3>Ton rendez-vous avec ...</h3>
+        <p class="ml-3">Le 04/03/2020 à Bordeaux</p>
+      </div>
+
+      <div class="status-pan">
+        Status : Pending
+      </div>
+    </div>
   </div>
+
 </div>
