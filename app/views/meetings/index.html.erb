@@ -2,6 +2,7 @@
 
 salut ça va ?
 
+
 <% current_user.meetings.each do |meeting| %>
   <%= link_to meeting_path(meeting, current_user), style: 'text-decoration:none' do %>
     <%= render "/layouts/shared/panel", meeting: meeting %>
