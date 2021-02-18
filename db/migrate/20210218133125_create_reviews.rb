@@ -4,8 +4,8 @@ class CreateReviews < ActiveRecord::Migration[6.0]
       t.float :rating
       t.text :content
       t.integer :destinataire
-      t.reference :user
-      t.reference :meeting
+      t.references :user
+      t.references :meeting
 
       t.timestamps
     end
