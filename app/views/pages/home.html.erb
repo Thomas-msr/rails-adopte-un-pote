@@ -3,13 +3,21 @@
     <h1  style="">Tes potes ne sont pas assez cool ? Pas de problème !</h1>
     <div class="d-flex justify-content-center">
       <div class="searchbar">
+        <%= form_tag offers_path, method: :get do %>
+          <%= text_field_tag :query,
+          params[:query],
+          class: "search_input",
+          placeholder: "Trouve ton poto."
+          %>
 
-        <input class="search_input" type="text" name="" placeholder="Trouve un poto dans ta ville ">
-        <%= link_to offers_path, class: "search_icon" do %>
-          <%= icon("fas" ,"search") %>
+            <%= submit_tag "", class: "d-none" %>
+            <%= icon("fas" ,"search search_icon") %>
+
+
         <% end %>
-        <%# <a href="#" class="search_icon"></a> %>
+
       </div>
     </div>
   </div>
 </div>
+
