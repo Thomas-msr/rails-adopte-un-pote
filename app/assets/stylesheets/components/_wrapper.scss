@@ -1,13 +1,22 @@
 .wrapper-header {
+}
 
+.wrapper-global{
+   background-color: white;
 }
 
 .wrapper {
+  width: 80%;
+  margin: 0 auto;
+
   height: 300px;
-  background-color: white;
   display: flex;
   align-items: center;
+  img{
+    margin-left: 0;
+  }
 }
+
 
 .wrapper-description {
   background-color: white;
