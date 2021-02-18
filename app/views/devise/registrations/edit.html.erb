@@ -20,6 +20,8 @@
 
       <%= f.input :email, required: true, autofocus: true %>
 
+      <%= f.input :init_tags, label: "Tes kiffs", required: true, collection: Tag.all, input_html: { multiple: true, class: 'multiple-select' }, include_hidden: false %>
+
       <%= f.input :description, label: "Description", required: true, autofocus: true %>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -40,6 +42,7 @@
                   hint: "Ton mot de passe actuel est nécessaire pour valider les modifications",
                   required: true,
                   input_html: { autocomplete: "current-password" } %>
+      <%= f.input :tags, collection: Tag.all, input_html: { multiple: true, class: 'multiple-select' }, include_hidden: false %>
     </div>
 
     <div class="form-actions" style="background-color:#f6bd60; color:white; width:120px; text-align:center; margin: 0 auto">
