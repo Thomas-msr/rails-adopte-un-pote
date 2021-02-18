@@ -53,7 +53,7 @@ Offer.create!(title: "J'aime cuisiner avec mon pote Jessie", availabilities: "Di
 Offer.create!(title: "C’est pour une personne comme vous que je me lave les dents et mets une chemise chaque matin !", availabilities: "Dispo les lundi", user_id: 10)
 Offer.create!(title: "Que diriez-vous de prendre un rendez-vous pour parler de notre amitié", availabilities: "Dispo les lundis apres-midi", user_id: 9)
 Offer.create!(title: "La valeur d'un homme ne se mesure qu'a son amitié", availabilities: "Dispo les lundis apres-midi", user_id: 14)
-Offer.create!(title: "Un de mes clients m'a dit que vous cherchiez une solution pour devenir poto", availabilities: "Dispo les lundis apres-midi", user_id: 15)
+
 
 puts "Creating meetings..."
 
