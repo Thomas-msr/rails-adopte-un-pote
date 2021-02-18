@@ -62,6 +62,15 @@ Meeting.create!(status: "pending", user_id: 2, offer_id:1)
 Meeting.create!(status: "pending", user_id: 3, offer_id:1)
 Meeting.create!(status: "pending", user_id: 1, offer_id:2)
 Meeting.create!(status: "pending", user_id: 3, offer_id:2)
+
+puts "Creating messages..."
+
+Message.create!(meeting_id: 1, user_id: 2, content: "Kikou, je voudrais te recontrer...")
+Message.create!(meeting_id: 1, user_id: 1, content: "Okay, tu voudrais faire quoi ?")
+Message.create!(meeting_id: 1, user_id: 2, content: "Je sais pas, je suis très timide")
+Message.create!(meeting_id: 1, user_id: 1, content: "Allons faire du poney alors !")
+
+
 puts "Finished!"
 
 

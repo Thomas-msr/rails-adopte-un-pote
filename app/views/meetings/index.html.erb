@@ -1,15 +1,23 @@
 <!-- edit.html.erb -->
 
+
 <div style="height: 20px"></div>
-
-
-<h6>salut ça va ?</h6>
-
 
 <% current_user.meetings.each do |meeting| %>
   <%= link_to meeting_path(meeting, current_user), style: 'text-decoration:none' do %>
-    <%= render "/layouts/shared/panel", meeting: meeting %>
+    <%= render "/layouts/shared/panel_user", meeting: meeting %>
   <% end %>
+
+<% end %>
+
+<br>
+<h1>Tes RDV en tant que poto:</h1>
+
+<% Meeting.where(offer_id:current_user.id).each do |meeting| %>
+  <%= link_to meeting_path(meeting, current_user), style: 'text-decoration:none' do %>
+    <%= render "/layouts/shared/panel_offer", meeting: meeting %>
+  <% end %>
+
   <div class="index_rdv">
     <div class="btn-center">
   <%= simple_form_for [meeting] do |f| %>
@@ -21,3 +29,4 @@
 <% end %>
 
 </div>
+

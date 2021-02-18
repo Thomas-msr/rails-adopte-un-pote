@@ -1,8 +1,31 @@
 .wrapper-header {
 }
 
-.wrapper-header-met {
-  margin-top: 30px;
+.wrapper-header-meeting {
+  // margin-top: 30px;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  img {
+    margin: 0;
+  }
+  // margin: 0 auto;
+
+  // height: 200px;
+  // display: flex;
+  // align-items: center;
+  // img{
+  //   margin: 0;
+  // }
+
+}
+
+.superposition img {
+margin-left: 30px;
+
+//   margin-right: auto;
+  // display: block;
 }
 
 .wrapper-global{
@@ -53,5 +76,51 @@
 
 .details-center{
 text-align: center;
+
 }
 
+
+.wrapper-global-messages {
+  padding-top: 20px;
+  background-color: white;
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper-messages {
+  width: 80%;
+}
+
+.wrapper-message-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  img {
+    margin-right: 5px;
+  }
+}
+
+.wrapper-message-content {
+  margin-left: 50px;
+  width: 85%;
+  background-color: rgb(244,244,244);
+}
+
+
+.wrapper-send-message {
+  width: 100%;
+}
+
+.wrapper-button {
+  width: 400px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.btn-send {
+  width: 100% !important;
+  margin-left: 0 !important;
+  // margin: 0 auto;
+}
