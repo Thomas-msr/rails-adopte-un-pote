@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(params_review)
     if @review.save
       flash[:success] = "Object successfully created"
-      redirect_to @review
+      redirect_to @review.meeting
     else
       flash[:error] = "Something went wrong"
       render 'new'
@@ -20,7 +20,11 @@ class ReviewsController < ApplicationController
     @reviews = Review.all
   end
 
+  private
 
+  def params_review
+    params.require(:review).permit(:content, :rating, :destinataire, :user_id, :meeting_id)
+  end
   
   
 end
