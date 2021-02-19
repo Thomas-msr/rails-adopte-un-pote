@@ -1,0 +1,15 @@
+.core {
+  display: flex;
+}
+
+.chat {
+  
+  width: 1000px;
+}
+
+.reviews {
+  flex-grow: 1;
+  height: auto;
+  width: fit-content;
+}
+
