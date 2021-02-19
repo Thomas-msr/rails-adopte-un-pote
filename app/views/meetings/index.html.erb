@@ -11,7 +11,12 @@
 <% end %>
 
 <br>
+
+
+<div class=bottom-card>
 <h1>Tes RDV en tant que poto:</h1>
+</div>
+
 
 <% Meeting.where(offer_id:current_user.id).each do |meeting| %>
   <%= link_to meeting_path(meeting, current_user), style: 'text-decoration:none' do %>
