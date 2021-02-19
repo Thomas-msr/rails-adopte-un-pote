@@ -27,29 +27,39 @@
       <h3> Ta rencontre avec <%= @meeting.user.first_name %></h3>
     <% end %>
     <h4 style="font-family: 'Frank Ruhl Libre', serif;">Le <%= "#{@meeting.date.to_s[8,2]}/#{@meeting.date.to_s[5,2]}/#{@meeting.date.to_s[0,4]}"%> à <%= @meeting.offer.user.city %></h4>
+      <div class="status-pan">
+          Status : <%= @meeting.status  %>
+          <% if @meeting.status == "pending" %>
+            &#128528
+          <% elsif @meeting.status == "accepted" %>
+            &#128525
+          <% else %>
+            &#128557
+          <% end %>
+      </div>
     </div>
     <div style="height: 10px"></div>
   </div>
 
 
+<div class="container-btn">
+  <div class="btn">
+    <div class=btn-center>
 
-<div class="btn">
-  <div class=btn-center>
-
-  <% if current_user.id == @meeting.offer.user_id %>
-    <%= simple_form_for @meeting do |f| %>
-      <%= f.button :submit, "Accepter cette rencontre", class: "btn btn-info"%>
-      <%= f.button :submit, "Refuser cette rencontre", class: "btn btn-info"%>
-    <% end %>
-  <% else %>
-    <%= simple_form_for @meeting do |f| %>
-        <%= f.button :submit, "Annuler cette rencontre", class: "btn btn-info"%>
+    <% if current_user.id == @meeting.offer.user_id %>
+      <%= simple_form_for @meeting do |f| %>
+        <%= f.button :submit, "Accepter cette rencontre", class: "btn btn-info"%>
+        <%= f.button :submit, "Refuser cette rencontre", class: "btn btn-info"%>
       <% end %>
-    <% end %>
+    <% else %>
+      <%= simple_form_for @meeting do |f| %>
+          <%= f.button :submit, "Annuler cette rencontre", class: "btn btn-info"%>
+        <% end %>
+      <% end %>
 
+    </div>
   </div>
 </div>
-
 
 
 <div class="core"> 
@@ -106,9 +116,9 @@
         <p class="date-message">postée le <%= review.created_at.strftime("%d-%m-%Y") %> </p>
       </div>
       <% end %>
-      <div class="wrapper-global-messages">
+      <div class="wrapper-global-messages-reviews">
       <%= simple_form_for @review, class:"wrapper-send-message" do |f| %>
-            <%= f.input :rating, label: "la note" %>
+            <%= f.input :rating, label: "Donne une note à #{@meeting.offer.user.first_name}" %>
             <%= f.input :content, label: "Ta review :" %>
             <%= f.input :meeting_id, :as => :hidden, :input_html => { :value => @meeting.id } %>
             <%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id } %>
@@ -136,17 +146,18 @@
           <p class="date-message">postée le <%= review.created_at.strftime("%d-%m-%Y") %> </p>
         </div>
       <% end %>
+      <div class="wrapper-global-messages-reviews">
+        <%= simple_form_for @review, class:"wrapper-send-message" do |f| %>
+          <%= f.input :rating, label: "Donne une note à #{@meeting.user.first_name}" %>
+          <%= f.input :content, label: "Ton retour d'expérience :" %>
 
-      <%= simple_form_for @review, class:"wrapper-send-message" do |f| %>
-        <%= f.input :rating, label: "la note" %>
-        <%= f.input :content, label: "Ton retour d'expérience :" %>
-
-        <%= f.input :meeting_id, :as => :hidden, :input_html => { :value => @meeting.id } %>
-        <%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id } %>
-        <%= f.input :destinataire, :as => :hidden, :input_html => { :value => @meeting.user_id } %>
-        <div class="wrapper-button">
-          <%= f.button :submit, "Envoyer", class:"btn btn-flat btn-send"%>
-        </div>
+          <%= f.input :meeting_id, :as => :hidden, :input_html => { :value => @meeting.id } %>
+          <%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id } %>
+          <%= f.input :destinataire, :as => :hidden, :input_html => { :value => @meeting.user_id } %>
+          <div class="wrapper-button">
+            <%= f.button :submit, "Envoyer", class:"btn btn-flat btn-send"%>
+          </div>
+      </div>
 
       <% end %>
 
