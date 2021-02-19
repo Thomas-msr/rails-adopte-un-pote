@@ -30,7 +30,16 @@
     </div>
   </div>
 
-  <div class="rating"> <i class="fas fa-star"></i></div>
+
+<% sum = 0 %>
+<% n = 0 %>
+<% Review.where(destinataire: offer.user_id).each do |review| %>
+  <% sum += review.rating %>
+   <% n += 1 %>
+<% end %>
+<% average = n.zero? ? '-' : sum.fdiv(n) %>
+
+  <div class="rating"> <i class="fas fa-star"></i> <%= average %> (<%= n %>)</div>
     <% end %>
   </div>
 
