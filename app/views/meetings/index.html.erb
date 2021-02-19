@@ -11,21 +11,18 @@
 <% end %>
 
 <br>
+
+
+<div class=bottom-card>
 <h1>Tes RDV en tant que poto:</h1>
+</div>
+
 
 <% Meeting.where(offer_id:current_user.id).each do |meeting| %>
   <%= link_to meeting_path(meeting, current_user), style: 'text-decoration:none' do %>
     <%= render "/layouts/shared/panel_offer", meeting: meeting %>
   <% end %>
 
-  <div class="index_rdv">
-    <div class="btn-center">
-  <%= simple_form_for [meeting] do |f| %>
-      <%= f.button :submit, "Accepter cette rencontre", class: "btn btn-light btn-lg "%>
-      <%= f.button :submit, "Refuser cette rencontre", class: "btn btn-light btn-lg "%>
-      <%= f.button :submit, "Annuler cette rencontre", class: "btn btn-light btn-lg "%>
-    <% end %>
-    </div>
 <% end %>
 
 </div>

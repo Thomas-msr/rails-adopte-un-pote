@@ -1,22 +1,25 @@
 .rating-board {
   background-color: white;
-  width: 30%;
+  width: auto;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
+  height: max-content;
+  border-radius: 10px;
   
 
   h4 {
-    background-color: rgba(246, 189, 96, 0.5);
+    background-color: white;
     text-align: center;
     padding: 4px;
     margin-bottom: 0px;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
+    border-bottom: 0.3px solid rgba( 0, 0, 0, 0.2);
   }
 }
 
 .review {
-  border: 1px solid grey;
+  border-bottom: 0.1px solid rgba( 0, 0, 0, 0.1);
   border-radius: 3px;
 }
 

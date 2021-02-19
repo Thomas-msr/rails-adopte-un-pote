@@ -1,10 +1,13 @@
+<div style="height: 10px"></div>
+
 <div class="wrapper-header">
-  <h5> <%= link_to "< Retour aux RDVs", meetings_path %> </h5>
+  <h5> <%= link_to "< Retour aux RDVs", meetings_path, class: "btn btn-info rdv" %> </h5>
 </div>
 
   <div class=wrapper-global>
     <div class="wrapper-header-meeting">
       <div class="superposition">
+        <div style="height: 15px"></div>
         <% if current_user.id == @meeting.user_id %>
           <img class="avatar-large-bordered" src="<%=@meeting.user.avatar_url%>"  alt="user avatar">
           <img class="avatar-large-bordered chevauche-big" src="<%=@meeting.offer.user.avatar_url%>"  alt="user avatar">
@@ -15,67 +18,155 @@
       </div>
     </div>
 
-<br>
+<div style="height: 20px"></div>
 
     <div class=details-center>
     <% if current_user.id == @meeting.user_id %>
-      <h3>Ta rencontre avec <%= @meeting.offer.user.first_name %></h3>
+      <h3 style="font-family: 'Frank Ruhl Libre', serif;">Ta rencontre avec <%= @meeting.offer.user.first_name %></h3>
     <% else %>
       <h3> Ta rencontre avec <%= @meeting.user.first_name %></h3>
     <% end %>
-    <h4>Le <%= "#{@meeting.date.to_s[8,2]}/#{@meeting.date.to_s[5,2]}/#{@meeting.date.to_s[0,4]}"%> à <%= @meeting.offer.user.city %></h4>
+    <h4 style="font-family: 'Frank Ruhl Libre', serif;">Le <%= "#{@meeting.date.to_s[8,2]}/#{@meeting.date.to_s[5,2]}/#{@meeting.date.to_s[0,4]}"%> à <%= @meeting.offer.user.city %></h4>
+      <div class="status-pan">
+          Status : <%= @meeting.status  %>
+          <% if @meeting.status == "pending" %>
+            &#128528
+          <% elsif @meeting.status == "accepted" %>
+            &#128525
+          <% else %>
+            &#128557
+          <% end %>
+      </div>
+    </div>
+    <div style="height: 10px"></div>
+  </div>
+
+
+<div class="container-btn">
+  <div class="btn">
+    <div class=btn-center>
+
+    <% if current_user.id == @meeting.offer.user_id %>
+      <%= simple_form_for @meeting do |f| %>
+        <%= f.button :submit, "Accepter cette rencontre", class: "btn btn-info"%>
+        <%= f.button :submit, "Refuser cette rencontre", class: "btn btn-info"%>
+      <% end %>
+    <% else %>
+      <%= simple_form_for @meeting do |f| %>
+          <%= f.button :submit, "Annuler cette rencontre", class: "btn btn-info"%>
+        <% end %>
+      <% end %>
+
     </div>
   </div>
-
-
-<div class=btn-center>
-
-  <% if current_user.id == @meeting.offer.user_id %>
-    <%= simple_form_for @meeting do |f| %>
-      <%= f.button :submit, "Accepter cette rencontre", class: "btn-meetings"%>
-      <%= f.button :submit, "Refuser cette rencontre", class: "btn-meetings"%>
-    <% end %>
-  <% else %>
-    <%= simple_form_for @meeting do |f| %>
-        <%= f.button :submit, "Annuler cette rencontre", class: "btn-meetings"%>
-      <% end %>
-    <% end %>
-
 </div>
 
-<br>
 
-<div class="wrapper-global-messages">
-  <div class="wrapper-messages">
-    <% @meeting.messages.each do |message| %>
-      <div class="wrapper-message">
-        <div class="wrapper-message-header">
-          <img class="avatar" src="<%=User.find(message.user_id).avatar_url%>"  alt="user avatar">
-          <div><%= User.find(message.user_id).first_name%>, le <%=message.created_at.strftime("%d-%m-%Y")%> à <%= message.created_at.strftime("%H:%M") %></div>
-        </div>
-        <div class="wrapper-message-content">
-          <%= message.content %>
-        </div>
+<div class="core"> 
+  <div class="chat">
+    <div class="wrapper-global-messages">
+      <div class="wrapper-messages">
+        <% @meeting.messages.each do |message| %>
+          <div class="wrapper-message">
+            <div class="wrapper-message-header">
+              <img class="avatar" src="<%=User.find(message.user_id).avatar_url%>"  alt="user avatar">
+              <div><%= User.find(message.user_id).first_name%>, le <%=message.created_at.strftime("%d-%m-%Y")%> à <%= message.created_at.strftime("%H:%M") %></div>
+            </div>
+            <div class="wrapper-message-content">
+              <%= message.content %>
+            </div>
+          </div>
+          <br>
+        <% end %>
       </div>
-      <br>
+    </div>
+
+    <br>
+
+
+    <div class="wrapper-global-messages">
+        <%= simple_form_for @message, class:"wrapper-send-message" do |f| %>
+            <%= f.input :content, label: "Ton message :", :input_html => {:style=> 'width: 600px'} %>
+            <%= f.input :meeting_id, :as => :hidden, :input_html => { :value => @meeting.id } %>
+            <%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id } %>
+            <div class="wrapper-button">
+              <%= f.button :submit, "Envoyer", class:"btn btn-flat btn-send"%>
+            </div>
+
+      <% end %>
+    </div>
+
+    <br>
+    <br>
+  </div>
+
+  <div class="reviews">
+    <div class="rating-board">
+    <%if current_user == @meeting.user  %>
+    <h4><%= "les reviews de #{@meeting.offer.user.first_name}" %></h4>
+    <% Review.where(destinataire: @meeting.offer.user_id).each do |review| %>
+      <div class="review">
+
+        <div class="sender">
+          <h5> <img class="avatar ml-3"  src=" <%= User.find(review.user_id).avatar_url %> " /> <%= User.find(review.user_id).first_name %> </h5>
+          <h6><%= review.rating %> / 5</h6>
+        </div>
+
+        <p class="ml-4 mt-2"><%= review.content %></p>
+        <p class="date-message">postée le <%= review.created_at.strftime("%d-%m-%Y") %> </p>
+      </div>
+      <% end %>
+      <div class="wrapper-global-messages-reviews">
+      <%= simple_form_for @review, class:"wrapper-send-message" do |f| %>
+            <%= f.input :rating, label: "Donne une note à #{@meeting.offer.user.first_name}" %>
+            <%= f.input :content, label: "Ta review :" %>
+            <%= f.input :meeting_id, :as => :hidden, :input_html => { :value => @meeting.id } %>
+            <%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id } %>
+            <%= f.input :destinataire, :as => :hidden, :input_html => { :value => @meeting.offer.user_id } %>
+            <div class="wrapper-button">
+              <%= f.button :submit, "Envoyer", class:"btn btn-flat btn-send"%>
+            </div>
+      <% end %>
+      </div>
+            
+    <% else %>
+
+      <h4><%= "les reviews de #{@meeting.user.first_name}" %></h4>
+      <% Review.where(destinataire: @meeting.user_id).each do |review| %>
+        <div class="review">
+
+
+          <div class="sender">
+            <h5> <img class="avatar ml-3"  src=" <%= User.find(review.user_id).avatar_url %> " /> <%= User.find(review.user_id).first_name %> </h5>
+            <h6><%= review.rating %> / 5</h6>
+          </div>
+
+
+          <p class="ml-4 mt-2"><%= review.content %></p>
+          <p class="date-message">postée le <%= review.created_at.strftime("%d-%m-%Y") %> </p>
+        </div>
+      <% end %>
+      <div class="wrapper-global-messages-reviews">
+        <%= simple_form_for @review, class:"wrapper-send-message" do |f| %>
+          <%= f.input :rating, label: "Donne une note à #{@meeting.user.first_name}" %>
+          <%= f.input :content, label: "Ton retour d'expérience :" %>
+
+          <%= f.input :meeting_id, :as => :hidden, :input_html => { :value => @meeting.id } %>
+          <%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id } %>
+          <%= f.input :destinataire, :as => :hidden, :input_html => { :value => @meeting.user_id } %>
+          <div class="wrapper-button">
+            <%= f.button :submit, "Envoyer", class:"btn btn-flat btn-send"%>
+          </div>
+      </div>
+
+      <% end %>
+
+
+
+
     <% end %>
   </div>
+  
+  </div>
+
 </div>
-
-<br>
-
-
-<div class="wrapper-global-messages">
-    <%= simple_form_for @message, class:"wrapper-send-message" do |f| %>
-        <%= f.input :content, label: "Ton message :", :input_html => {:style=> 'width: 600px'} %>
-        <%= f.input :meeting_id, :as => :hidden, :input_html => { :value => @meeting.id } %>
-        <%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id } %>
-        <div class="wrapper-button">
-          <%= f.button :submit, "Envoyer", class:"btn btn-flat btn-send"%>
-        </div>
-
-   <% end %>
-</div>
-
-<br>
-<br>

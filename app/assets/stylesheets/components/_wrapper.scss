@@ -81,12 +81,16 @@ text-align: center;
 
 
 .wrapper-global-messages {
-  padding-top: 20px;
+  padding: 20px 0px;
   background-color: white;
-  width: 50%;
-  margin: 0 auto;
+  margin: 0 30px;
   display: flex;
   justify-content: center;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+
+
 }
 
 .wrapper-messages {
@@ -123,4 +127,33 @@ text-align: center;
   width: 100% !important;
   margin-left: 0 !important;
   // margin: 0 auto;
+}
+
+.wrapper-global-messages-reviews {
+
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  height: max-content;
+  min-height: 300;
+  padding: 20px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+  textarea {
+    margin: 0px !important;
+    padding: 0px !important;
+    width: 100%;
+  }
+  .form-group {
+    margin: 0px !important;
+    padding: 2.5px 0px !important;
+
+  }
+
+  label.float.optional {
+    margin-left: 30px !important;
+    margin-bottom: 10px !important;
+
+  }
 }
