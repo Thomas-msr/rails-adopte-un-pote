@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :meetings
   has_many :messages
   has_many :reviews
+  has_many :likes
 
 
   validates :first_name, presence: true

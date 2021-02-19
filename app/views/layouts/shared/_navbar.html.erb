@@ -11,7 +11,7 @@
       <% if user_signed_in? %>
         <%= link_to "Proposer une offre", new_offer_path(current_user), class: "nav-link" %>
         <%= link_to "Mes RDV", meetings_path(current_user), class: "nav-link" %>
-        <%= link_to "Mes coups de coeur", meetings_path(current_user), class: "nav-link" %>
+        <%= link_to "Mes coups de coeur", likes_path, class: "nav-link" %>
       <% end %>
     </div>
     <div class="d-flex ">

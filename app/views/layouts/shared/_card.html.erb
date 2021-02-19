@@ -1,21 +1,38 @@
-<div class="card">
-  <%= link_to offer_path(offer, current_user), style: 'text-decoration:none' do %>
-    <div class="image" style="background-image:linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.2)), url( <%= offer.user.avatar_url %> )">
-      <i class="far fa-heart"></i>
+<div class="card" id="card-<%=offer.id%>">
+
+  <div class="image" style="background-image:linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.2)), url( <%= offer.user.avatar_url %> )">
+
+      <% like = Like.find_by(user_id: current_user.id, offer_id: offer.id) %>
+
+
+      <% if like.nil? %>
+        <%= link_to likes_path(offer_id: offer.id, whereami: whereami), method: :post, remote: true do %>
+          <i class="far fa-heart"></i>
+        <% end %>
+      <% else %>
+        <%= link_to like_path(like, whereami: whereami), method: :delete, remote: true do %>
+          <i class="fas fa-heart"></i>
+        <% end %>
+      <% end %>
+
+    <%= link_to offer_path(offer, current_user), style: 'text-decoration:none' do %>
       <h2> <%= name %> </h2>
       <p><i class="fas fa-map-marker-alt"></i> <%= city %> </p>
-    </div>
-    <div class="text">
-      <h3> <%=  title %></h3>
-      <div class="taglist">
-        <% tags.each do |tag| %>
-          <div class="tag"> <%= tag.name %> </div>
-        <% end %>
+  </div>
 
-      </div>
+  <div class="text">
+    <h3> <%=  title %></h3>
+    <div class="taglist">
+      <% tags.each do |tag| %>
+        <div class="tag"> <%= tag.name %> </div>
+      <% end %>
+
     </div>
-      <div class="rating"> <i class="far fa-star"></i></div>
-  <% end %>
-</div>
+  </div>
+
+  <div class="rating"> <i class="fas fa-star"></i></div>
+    <% end %>
+  </div>
+
 
 

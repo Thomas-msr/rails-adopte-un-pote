@@ -43,9 +43,15 @@ transform: scale(1.05);
       position: absolute;
       top: 16px; right: 16px;
       color: white;
-      font-weight: lighter;
+      z-index: 100;
+      &:hover {
+        color: #e32434;
+      }
     }
-
+    .fas.fa-heart {
+      font-weight: 900;
+      color: #e32434;
+    }
 }
 
 .text {
@@ -88,7 +94,7 @@ transform: scale(1.05);
 }
 
 .fa-star {
-  color:rgba(246, 189, 96, 0.4);
+  color:#f5f50a;
 
 }
 
