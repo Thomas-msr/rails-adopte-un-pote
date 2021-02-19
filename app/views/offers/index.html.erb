@@ -1,9 +1,8 @@
 <div class="container" style="width:1000px; margin: 10px auto;">
-  <h2 style="text-align: center; margin-bottom: 20px;">Les potos à Bordeaux:</h2>
+  <h2 style="text-align: center; margin-bottom: 20px;">Les potos dispos:</h2>
   <div class="index">
     <% @offers.each do |offer| %>
-      <%= render "/layouts/shared/card", name: offer.user.first_name, city: offer.user.city, title: offer.title, tags: offer.user.tags, offer: offer %>
-
+      <%= render "/layouts/shared/card", name: offer.user.first_name, city: offer.user.city, title: offer.title, tags: offer.user.tags, offer: offer, whereami: "offers" %>
     <% end %>
   </div>
 </div>
