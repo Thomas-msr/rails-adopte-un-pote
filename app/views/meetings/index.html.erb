@@ -18,14 +18,6 @@
     <%= render "/layouts/shared/panel_offer", meeting: meeting %>
   <% end %>
 
-  <div class="index_rdv">
-    <div class="btn-center">
-  <%= simple_form_for [meeting] do |f| %>
-      <%= f.button :submit, "Accepter cette rencontre", class: "btn btn-light btn-lg "%>
-      <%= f.button :submit, "Refuser cette rencontre", class: "btn btn-light btn-lg "%>
-      <%= f.button :submit, "Annuler cette rencontre", class: "btn btn-light btn-lg "%>
-    <% end %>
-    </div>
 <% end %>
 
 </div>
