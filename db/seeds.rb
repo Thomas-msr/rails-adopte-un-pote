@@ -26,7 +26,7 @@ puts "Creating users..."
 User.create!(first_name: "Baptiste", last_name: "Josse", city: "Bordeaux", age: 29, email: "baptiste@gmail.com", password: "secret", description: "Salut moi c'est Baptiste, j'aime l'aventure et le code !! Je peux devenir ton ami contre une petite compensation financière :) A pluusss ! " ,avatar_url:"https://scontent-cdt1-1.xx.fbcdn.net/v/t1.0-9/20292681_10211935177968045_3900832542794430335_n.jpg?_nc_cat=101&ccb=3&_nc_sid=0debeb&_nc_ohc=LepZDhv_flQAX9gRpzk&_nc_ht=scontent-cdt1-1.xx&oh=bcc447badba35e3684d3e335af05e112&oe=60524335",init_tags:[1,2,4])
 User.create!(first_name: "Thomas", last_name: "Moessner", city: "Bordeaux", age: 28, email: "totodu33@gmail.com", password: "secret", avatar_url:"https://ca.slack-edge.com/T02NE0241-U01JASARRND-2749c28ba94d-512",init_tags:[4,5,7])
 User.create!(first_name: "Cyrielle", last_name: "Gout", city: "Bordeaux", age: 25, email: "cyrielle@gmail.com", password: "secret", avatar_url:"https://ca.slack-edge.com/T02NE0241-U01J4HUUB6G-4bd88b49390d-512",init_tags:[6,3,1])
-User.create!(first_name: "Alexandre", last_name: "Madeleine", city: "Bordeaux", age: 21, email: "alex@gmail.com", password: "secret", avatar_url: "https://ca.slack-edge.com/T02NE0241-U01JD3D89CH-c479e937dfeb-512",init_tags:[1,2,4,5,7])
+User.create!(first_name: "Alexandre", last_name: "Madeleine", city: "Bordeaux", age: 21, email: "alex@gmail.com", password: "secret",description: "Salut, je suis un type plutôt cool, viens me rencontrer", avatar_url: "https://ca.slack-edge.com/T02NE0241-U01JD3D89CH-c479e937dfeb-512",init_tags:[1,2,4])
 User.create!(first_name: "Bertrand", last_name: "Bussac", city: "Bordeaux", age: 36, email: "bb@gmail.com", password: "secret", avatar_url: "https://ca.slack-edge.com/T02NE0241-U03UPH1K6-d2c11a26c57f-512",init_tags:[1,2,4,8,7])
 User.create!(first_name: "Gabriel", last_name: "soleil", city: "Bordeaux", age: 56, email: "soleil@gmail.com", password: "secret", avatar_url: "https://avatars.githubusercontent.com/u/75898175?v=4",init_tags:[1,2])
 User.create!(first_name: "Quentin", last_name: "martini", city: "Paris", age: 16, email: "eloise@gmail.com", password: "secret", avatar_url: "https://avatars.githubusercontent.com/u/71469503?v=4",init_tags:[1,2,4])
@@ -47,8 +47,8 @@ User.create!(first_name: "julie", last_name: "bloublou", city: "Paris", age: 46,
 
 puts "Creating offers..."
 Offer.create!(title: "Je suis un aventurier sans limites", availabilities: "Dispo les weekends", user_id: 1)
-Offer.create!(title: "Je suis un aventurier sans limites", availabilities: "Dispo les weekends", user_id: 3)
-Offer.create!(title: "On a mangé des Lu, et c'était pas des biscuits", availabilities: "Dispo tout le temps", user_id: 4)
+Offer.create!(title: "Salut, ça boom ?", availabilities: "Dispo les weekends", user_id: 2)
+Offer.create!(title: "On a mangé des Lu, et c'était pas des biscuits", availabilities: "Dispo tout le temps", user_id: 3)
 Offer.create!(title: "Hâte de te rencontrer :)", availabilities: "Dispo les weekends", user_id: 5)
 Offer.create!(title: "Je croque la vie à pleine dent", availabilities: "Dispo les lundis apres-midi", user_id: 20)
 Offer.create!(title: "Les plus anciens amis sont les meilleurs.", availabilities: "Dispo les vendredis", user_id: 6)
@@ -72,7 +72,7 @@ puts "Creating meetings..."
 Meeting.create!(status: "pending", user_id: 7, offer_id:1)
 Meeting.create!(status: "pending", user_id: 3, offer_id:1)
 Meeting.create!(status: "pending", user_id: 4, offer_id:5)
-Meeting.create!(status: "pending", user_id: 3, offer_id:2)
+Meeting.create!(status: "pending", user_id: 8, offer_id:2)
 Meeting.create!(status: "pending", user_id: 9, offer_id:5)
 Meeting.create!(status: "pending", user_id: 10, offer_id:8)
 
