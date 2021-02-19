@@ -1,29 +1,30 @@
 .btn-center {
     padding-left: 10px 10px;
-    font-family: 'Frank Ruhl Libre', serif;
+    
 }
 
 .rdv {
-    font-family: 'Frank Ruhl Libre', serif;
+    color: white;
     margin-left: 15px;
 }
 
-.my-message {
-    margin-top: 50px;
-    background-color: white;
-    height: 0 px;
-    color: black;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    flex-grow: 1;
-    padding: 20px 20px;
-    width: 60%;
-    margin-left: 250px;
-    font-family: 'Frank Ruhl Libre', serif;
 
-}
 
 .text {
   margin-left: 30px !important;
+}
+
+.container-btn {
+    display: flex;
+    justify-content: center;
+
+    .btn-info {
+        margin: 0px 8px;
+        color: white !important;
+    }
+}
+
+.btn-info {
+
+    color: white !important;
 }

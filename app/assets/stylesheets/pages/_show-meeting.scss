@@ -4,12 +4,17 @@
 
 .chat {
   
-  width: 1000px;
+  width: 65%;
+
 }
 
 .reviews {
-  flex-grow: 1;
-  height: auto;
+  height: fit-content;
   width: fit-content;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-right: 32px;
+  margin-bottom: 32px;
+  background-color: white;
 }
 

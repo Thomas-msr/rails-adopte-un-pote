@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
       redirect_to @review.meeting
     else
       flash[:error] = "Something went wrong"
-      render 'new'
+      redirect_to @review.meeting
     end
   end
   
