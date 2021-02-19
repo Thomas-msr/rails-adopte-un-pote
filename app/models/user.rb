@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :offers
   has_many :meetings
   has_many :messages
+  has_many :reviews
 
 
   validates :first_name, presence: true

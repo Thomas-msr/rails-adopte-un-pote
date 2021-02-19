@@ -1,0 +1,24 @@
+<div class="rating-board">
+  <%if current_user == @meeting.user  %>
+  <h4><%= "les reviews de #{@meeting.offer.user.first_name}" %></h4>
+  <% Review.where(destinataire: @meeting.offer.user_id).each do |review| %>
+    <div class="review">
+
+      <div class="sender">
+        <h5> <img class="avatar ml-3"  src=" <%= User.find(review.user_id).avatar_url %> " /> <%= User.find(review.user_id).first_name %> </h5>
+        <h6><%= review.rating %> / 5</h6>
+      </div>
+
+      <p class="ml-4 mt-2"><%= review.content %></p>
+      <p class="date-message">postée le <%= review.created_at.strftime("%d-%m-%Y") %> </p>
+    </div>
+    <% end %>
+
+  <% else %>
+
+    <% @meeting.user.reviews.each do |review| %>
+      <%= review.rating %>
+      <%= review.content %>
+    <% end %>
+  <% end %>
+</div>

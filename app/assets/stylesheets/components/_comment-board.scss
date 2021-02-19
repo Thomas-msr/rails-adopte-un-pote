@@ -1,0 +1,45 @@
+.rating-board {
+  background-color: white;
+  width: 30%;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  
+
+  h4 {
+    background-color: rgba(246, 189, 96, 0.5);
+    text-align: center;
+    padding: 4px;
+    margin-bottom: 0px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+  }
+}
+
+.review {
+  border: 1px solid grey;
+  border-radius: 3px;
+}
+
+.sender {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid lightgray;
+  margin-top: 5px;
+
+  h5 {
+    font-weight: bold;
+  }
+
+  h6 {
+    margin-right: 16px;
+    font-weight: bold;
+  }
+}
+
+.date-message {
+  text-align: end;
+  font-style: italic;
+  opacity: 0.8;
+  margin: 8px;
+}
